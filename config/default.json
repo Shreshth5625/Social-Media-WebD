@@ -1,3 +1,4 @@
 {
-    "mongoURI" : "mongodb+srv://Shreshth:123@webd-project.cvobe.mongodb.net/SampleDB?retryWrites=true&w=majority "
+    "mongoURI" : "mongodb+srv://Shreshth:123@webd-project.cvobe.mongodb.net/SampleDB?retryWrites=true&w=majority ",
+    "jwtSecret" : "mysecrettoken"
 }

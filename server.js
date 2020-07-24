@@ -1,10 +1,14 @@
 const express = require('express');
 const connectDB = require('./config/db');   //to connect with database
 
+
 const app = express();
 
 //Connect database.
 connectDB();
+
+//Init Middleware
+app.use(express.json({extended:false}));    //allows to get data from req stop body
 
 app.get('/',(req,res) => res.send("API running ")) //to test if listen is running
 
