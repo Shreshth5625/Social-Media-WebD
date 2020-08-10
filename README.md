@@ -19,5 +19,13 @@ Node modules are not added.
 3.4)DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead. => config => db.js => add useCreateIndex : true
     Check if user exist , user gravatar , initialised new user instance, encrypt password, ***await user.save()
 
-3.5)
+3.5)return jsonwebtoken
+
+3.6)Create middleware => auth.js  (video13). Also includes testing the jsonwebToken***
+
+3.7) get user details by editing auth.js (routes/api)
+
+UPTO MODULE 3.13 => User registration, jsonwebtoken application and authentication
+
+3.14) copied from users.js and modified for login authentication. AUTHENTICATION FOR BACKEND DONE (login and registration).
 

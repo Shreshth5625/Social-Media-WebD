@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const {check , validationResult} = require('express-validator');
-const gravatar = require('gravatar');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 const User = require('../../models/User');  //to bring in the User model
+const gravatar = require('gravatar');
+const bcrypt = require('bcryptjs');     //to encrypt the password
+const jwt = require('jsonwebtoken');
+
 const config = require("config");   //for jwt webtoken 
 
 //  @route  POST api/users
@@ -18,12 +19,12 @@ router.post('/', [
 ],
 async(req,res)=> {
 
-    const errors = validationResult(req);
-
+    const errors = validationResult(req);   //extracts the validation error from the req object and makes it available for result object
     if(!errors.isEmpty())
-        return res.status(400).json({errors : errors.array()})
+        return res.status(400).json({errors : errors.array()})  
     
-    const {name,email,password} = req.body;
+    //FOR USER REGISTRATION (onwwards)
+    const {name,email,password} = req.body; //to pull these fields from req.body
 
     try{
         //SEE IF THE USER EXIST
@@ -39,12 +40,14 @@ async(req,res)=> {
            d:'mm'  // default image of user icon, we can also write 404 so it says "File not found error" 
         })
        
-        user = new User({
+        user = new User({   
             name,
             email,
             avatar,
             password,
-        })
+        })  
+        //This does not save the user, it just creates an instance of User.
+        // We need to call user.save() to save the user with these details
         
        //ENCRYPT PASSWORD
        const salt = await bcrypt.genSalt(10);   
@@ -60,7 +63,7 @@ async(req,res)=> {
            }
        }
 
-       jwt.sign(payload, config.get('jwtSecret'), {expiresIn:36000}, (err,token) =>{
+       jwt.sign(payload, config.get('jwtSecret'), {expiresIn:360000000000}, (err,token) =>{
            if(err) throw err;
            res.json({token});
        });
