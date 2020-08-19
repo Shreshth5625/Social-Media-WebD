@@ -20,6 +20,7 @@ router.post('/', [
 async(req,res)=> {
 
     const errors = validationResult(req);   //extracts the validation error from the req object and makes it available for result object
+    //check if the request made is valid
     if(!errors.isEmpty())
         return res.status(400).json({errors : errors.array()})  
     
@@ -63,7 +64,7 @@ async(req,res)=> {
            }
        }
 
-       jwt.sign(payload, config.get('jwtSecret'), {expiresIn:360000000000}, (err,token) =>{
+       jwt.sign(payload, config.get('jwtSecret'), {expiresIn:3600000000}, (err,token) =>{
            if(err) throw err;
            res.json({token});
        });

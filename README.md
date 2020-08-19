@@ -11,7 +11,7 @@ Node modules are not added.
 
 3.1)created models , created Schema in User.js 
 
-3.2)Init middleware, check using postman (created POST request)
+3.2)Init middleware (server.js), check using postman (created POST request)
 
 3.3)used express validator in users.js for validations  => check('field','Error message').isEmpty(),not(),isEmail(),isLength()
     Include these conditions within the router.post parameters []
@@ -29,3 +29,26 @@ UPTO MODULE 3.13 => User registration, jsonwebtoken application and authenticati
 
 3.14) copied from users.js and modified for login authentication. AUTHENTICATION FOR BACKEND DONE (login and registration).
 
+4.15) Created Profile model
+
+4.16)Getting the profile of a user using the userID, checking if a profile exists for a given user. Used a new method called .populate()
+
+4.17) Creating and updating profile routes
+-> added profileFields 
+-> skills are divided by "," so used split(), map() and trim()  method
+-> check for a profile and update , if not found then create the profile for that user
+->ERROR FACED : do not forget to put >save"()"  bracket !!!
+
+4.18) Getting all the profiles , get profile by userID (req.params.user_id)
+************************************************************************* (do check for error case and multiple user case)
+
+4.19) Delete a user post or profile (if doesn't delete => run npm start again)
+
+4.20)Adding experience to the user profile
+
+4.21) Delete an experience.
+-> take id from the database
+
+************ the current field in the experience and education will itself set according to the date entered
+
+******************* NOT DONE: FETCHING GITHUB REPOSITORIES OF USER 
