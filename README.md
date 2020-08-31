@@ -51,4 +51,18 @@ UPTO MODULE 3.13 => User registration, jsonwebtoken application and authenticati
 
 ************ the current field in the experience and education will itself set according to the date entered
 
-******************* NOT DONE: FETCHING GITHUB REPOSITORIES OF USER 
+******************* NOT DONE: FETCHING GITHUB REPOSITORIES OF USER
+
+5.24) Created PostSchema in models
+
+5.25) Added post route 
+
+5.26) Get posts by user_id and by logged in user, also performed delete operation
+****************************** NOT DONE : USER LIKES AND DISKLIKES, COMMENT PART ALSO tut27
+
+*******************FRONTEND BEGINS********************************************************
+
+
+
+
+
