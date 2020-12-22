@@ -75,4 +75,6 @@ UPTO MODULE 3.13 => User registration, jsonwebtoken application and authenticati
 6.33) created auth components. Used section in app.js because except landing page, each page has a class of container to push everything in the middle
  => created basic routes for landing, login and register page (signup and login)
 
-6.34) Filling form on register page, useState hook, onchange method** 
+6.34) Filling form on register page, useState hook, onchange method**
+
+6.35) Login page completed, demonstration of post request using axios
