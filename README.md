@@ -1,5 +1,5 @@
 # Social-Media-WebD
-Node modules are not added.
+
 
 1)created server.js , added start,server to package.json file
 
@@ -40,7 +40,7 @@ UPTO MODULE 3.13 => User registration, jsonwebtoken application and authenticati
 ->ERROR FACED : do not forget to put >save"()"  bracket !!!
 
 4.18) Getting all the profiles , get profile by userID (req.params.user_id)
-************************************************************************* (do check for error case and multiple user case)
+****  (do check for error case and multiple user case)
 
 4.19) Delete a user post or profile (if doesn't delete => run npm start again)
 
@@ -51,7 +51,7 @@ UPTO MODULE 3.13 => User registration, jsonwebtoken application and authenticati
 
 ************ the current field in the experience and education will itself set according to the date entered
 
-******************* NOT DONE: FETCHING GITHUB REPOSITORIES OF USER
+******* NOT DONE: FETCHING GITHUB REPOSITORIES OF USER
 
 5.24) Created PostSchema in models
 
@@ -60,9 +60,19 @@ UPTO MODULE 3.13 => User registration, jsonwebtoken application and authenticati
 5.26) Get posts by user_id and by logged in user, also performed delete operation
 ****************************** NOT DONE : USER LIKES AND DISKLIKES, COMMENT PART ALSO tut27
 
-*******************FRONTEND BEGINS********************************************************
+*******************FRONTEND BEGINS***********************************
 
+6.31) npx create-react-app client => added scripts in package.json (main)
+ ("client": "npm start --prefix client")
+ ("dev": "concurrently \"npm run start\" \"npm run client\" ")  to run both the server and client concurrently
+ now "npm run dev"
+ => installed dependencies
+ => deleted readme and git from client (npx rimraf .\**\.git)
+ => added proxy in package.json (client)
 
+6.32) created src\component\layout 
 
+6.33) created auth components. Used section in app.js because except landing page, each page has a class of container to push everything in the middle
+ => created basic routes for landing, login and register page (signup and login)
 
-
+6.34) Filling form on register page, useState hook, onchange method** 
