@@ -78,3 +78,15 @@ UPTO MODULE 3.13 => User registration, jsonwebtoken application and authenticati
 6.34) Filling form on register page, useState hook, onchange method**
 
 6.35) Login page completed, demonstration of post request using axios
+
+7.37) Creating redux stores.js, reducers  and intergrating in app.js
+
+7.38) Create alert reducer, made actions folder (all the action files will go here)
+    => action basically contains a type and a payload which will be the data
+    => made alert.js in actions, installed uuid (generate random universal id) dependency
+
+7.39) alert application in Register component
+    =>We always have to export "connect" which takes in state that we want to map, and object with action
+    https://stackoverflow.com/questions/60830848/attempted-import-error-uuid-does-not-contain-a-default-export-imported-as-u
+    => made alert in components
+    => setTimeout in alert actions
