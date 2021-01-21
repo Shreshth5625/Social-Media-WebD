@@ -6,6 +6,7 @@ const Profile = require('../../models/Profile');
 const User = require('../../models/User');  //since avatar & name of the user are in this model
 
 const { check, validationResult } = require('express-validator');
+const checkObjectId = require('../../middleware/checkObjectId');
 
 
 //  @route  GET api/profile/me
@@ -18,7 +19,7 @@ router.get('/me',auth, async (req,res)=> {
 
         if(!profile)
         {
-            res.status(400).json({msg :"There is no profile for this user"});
+           return res.status(400).json({msg :"There is no profile for this user"});
         }
         res.json(profile);  //if profile exists send the profile
 
@@ -96,7 +97,7 @@ router.post('/', [auth,[    //we pass auth and validation middleware
         //CREATE THE PROFILE IF NOT FOUND 
         profile = new Profile(profileFields);
         await profile.save();
-        res.json(profile);
+        return res.json(profile);
     }
     catch(err){
         console.error(err.message);
@@ -123,13 +124,13 @@ router.get('/', async (req,res) =>{
 //  @desc   Get profile by userID
 //  @access Private
 
-router.get('/user/:user_id', async (req,res) =>{ 
+router.get('/user/:user_id',checkObjectId('user_id'), async( {params: {user_id} },res) =>{ 
     try {
-        const profile = await Profile.findOne({user: req.params.user_id}).populate('user' , ['name','avatar'] );
+        const profile = await Profile.findOne({user: user_id}).populate('user' , ['name','avatar'] );
         res.json(profile);
 
         if(!profile){
-            res.status(400).json({msg: "Profile not found."});
+            return res.status(400).json({msg: "Profile not found."});
         }
 
     } catch (err) {
