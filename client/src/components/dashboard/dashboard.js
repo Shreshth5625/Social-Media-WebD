@@ -9,7 +9,7 @@ const Dashboard =  ({ getCurrentProfile, auth: {user}, profile: {profile,loading
 
     useEffect (() => {
         getCurrentProfile();
-    }, [] )
+    }, [getCurrentProfile] )
 
     return loading && profile === null ? <Spinner /> : <Fragment> 
         <h1 className="large text-primary">Dashboard</h1>
@@ -17,7 +17,8 @@ const Dashboard =  ({ getCurrentProfile, auth: {user}, profile: {profile,loading
         <i className="fas fa-user"></i>Welcome { user && user.name }</p>
         {/* This exists even if user don't have a profile */}
         
-         { profile !== null ? (
+        
+         { profile.msg !== "Bad Request" ? (
             <Fragment>has </Fragment>
          ) : (
             <Fragment>
